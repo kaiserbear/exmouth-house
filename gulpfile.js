@@ -2,12 +2,10 @@
 
 const browserSync = require('browser-sync').create();
 const del = require('del');
-const env = require('gulp-util').env;
 const gulp = require('gulp');
-const handlebars = require('gulp-compile-handlebars');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
-
+const exec = require('child_process').exec;
 
 const config = {
   src: './src',
@@ -20,35 +18,26 @@ const config = {
   ]
 };
 
-// gulp.task('clean', () => del(config.dest));
-
-gulp.task('html', () => {
-  return gulp.src(`${config.src}/pages/**/*.hbs`)
-    .pipe(handlebars({}, {
-      ignorePartials: true,
-      batch: [`${config.src}/partials`]
-    }))
-    .pipe(rename({
-      extname: '.html'
-    }))
-    .pipe(gulp.dest(config.dest));
-});
-
 gulp.task('serve', () => {
   browserSync.init({
+    proxy: 'http://localhost:3000',
+    port: 4000,
+    browser: ['google-chrome'],
     open: false,
-    notify: false,
-    files: [`${config.dest}/**/*`],
-    server: config.dest
+    files: ['./views/**/*.ejs', './sass/**/*.scss', './public/js/*.js']
+  });
+  exec('node app.js', function (err, stdout, stderr) {
+      console.log(stdout);
+      console.log(stderr);
+      callback(err);
   });
 });
 
 gulp.task('sass', function () {
   return gulp.src('./sass/**/*.scss')
     .pipe(sass.sync().on('error', sass.logError))
-    .pipe(gulp.dest('./dist/css'));
+    .pipe(gulp.dest('./public/css'));
 });
-
 
 gulp.task('sass:watch', function () {
   gulp.watch('./sass/**/*.scss', ['sass']);
@@ -60,12 +49,10 @@ gulp.task('watch', () => {
   });
 });
 
-gulp.task('default', ['html'], done => {
-  if (env.dev) {
-    gulp.start('serve');
-    gulp.start('watch');
-    gulp.start('sass');
-    gulp.start('sass:watch');
-  }
+gulp.task('default', done => {
+  gulp.start('serve');
+  gulp.start('watch');
+  gulp.start('sass');
+  gulp.start('sass:watch');
   done();
 });

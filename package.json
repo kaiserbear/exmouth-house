@@ -1,22 +1,40 @@
 {
   "name": "ExmouthHouse",
   "version": "0.0.1",
-  "description": "",
-  "author": "Jay Hughes",
+  "description": "Exmouth House",
+  "main": "app.js",
   "scripts": {
-    "prestart": "npm install",
-    "start": "gulp --dev",
-    "build": "gulp"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp"
   },
-  "devDependencies": {
-    "browser-sync": "^2.14.0",
-    "del": "^2.2.1",
-    "gulp": "^3.9.1",
-    "gulp-compile-handlebars": "^0.6.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-util": "^3.0.7"
-  },
+  "author": "Kaiser Bear",
+  "license": "ISC",
   "dependencies": {
-    "gulp-sass": "^3.1.0"
-  }
+    "@fortawesome/fontawesome": "^1.1.5",
+    "body-parser": "^1.14.1",
+    "bootstrap": "^4.0.0",
+    "browser-sync": "^2.23.6",
+    "connect-flash": "^0.1.1",
+    "del": "^3.0.0",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.8",
+    "express": "^4.16.3",
+    "express-ipfilter": "^0.3.1",
+    "express-session": "^1.11.3",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.2.1",
+    "jquery": "^3.3.1",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.13.12",
+    "node-sass": "^4.8.3",
+    "nodemailer": "^4.6.4",
+    "passport": "^0.3.0",
+    "passport-linkedin-oauth2": "^1.5.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.5.0",
+    "popper.js": "^1.14.3",
+    "sendmail": "^1.4.1"
+  },
+  "devDependencies": {}
 }
