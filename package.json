@@ -1,7 +1,7 @@
 {
-  "name": "Monty-Components",
+  "name": "ExmouthHouse",
   "version": "0.0.1",
-  "description": "A JSON component builder for ECMC",
+  "description": "",
   "author": "Jay Hughes",
   "scripts": {
     "prestart": "npm install",
