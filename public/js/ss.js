@@ -37,16 +37,16 @@ function getStyle(oElm, strCssRule){
 
 function navScroll() {
 
-    // console.log('navScroll');
+    if(navBar) {
+        var stickyNav = navBar.offsetTop + navHeight + 30;
 
-    var stickyNav = navBar.offsetTop + navHeight + 30;
-
-    if (window.pageYOffset >= stickyNav) {
-        navBar.classList.add("sticky", "animated", "fadeInDown");
-        fakeNav.style = "display: block;"
-    } else {
-        navBar.classList.remove("sticky", "animated", "fadeInDown");
-        fakeNav.style = "display: none;"
+        if (window.pageYOffset >= stickyNav) {
+            navBar.classList.add("sticky", "animated", "fadeInDown");
+            fakeNav.style = "display: block;"
+        } else {
+            navBar.classList.remove("sticky", "animated", "fadeInDown");
+            fakeNav.style = "display: none;"
+        }
     }
 }
 

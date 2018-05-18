@@ -6286,4 +6286,9 @@ html, body {
   height: 100%; }
 
 body {
-  background: #f2f2f2; }
+  background: black; }
+
+.main {
+  text-align: center; }
+  .main img {
+    width: 80%; }
