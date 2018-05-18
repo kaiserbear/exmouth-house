@@ -6292,3 +6292,7 @@ body {
   text-align: center; }
   .main img {
     width: 80%; }
+
+iframe {
+  width: 80%;
+  margin-left: 10%; }
