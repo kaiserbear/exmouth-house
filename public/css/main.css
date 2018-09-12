@@ -6286,12 +6286,23 @@ html, body {
   height: 100%; }
 
 body {
-  background: black; }
+  background: url("/img/bg.jpeg");
+  background-size: cover;
+  font-family: 'Roboto Slab', serif; }
 
 .main {
   text-align: center; }
   .main img {
-    width: 80%; }
+    width: 81%; }
+  .main h2, .main h3, .main h4 {
+    color: white;
+    background: black; }
+  .main h2 {
+    font-size: 5rem; }
+  .main h3 {
+    font-size: 4rem; }
+  .main .div {
+    margin: 2rem 0; }
 
 iframe {
   width: 80%;

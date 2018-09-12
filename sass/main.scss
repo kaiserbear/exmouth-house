@@ -5,15 +5,34 @@ html, body {
 }
 
 body {
-	background: black;
+	background: url('/img/bg.jpeg');
+	background-size: cover;
+	font-family: 'Roboto Slab', serif;
+
 }
 
 .main {
 	text-align: center;
 	img {
-		width: 80%;
+		width: 81%;
+	}
+	h2, h3, h4 {
+		
+		color: white;
+		background: black;
+	}
+	h2 {
+		font-size: 5rem;
+	}
+	h3 {
+		font-size: 4rem;		
+	}
+	.div {
+		margin: 2rem 0;
 	}
 }
+
+
 
 iframe {
 	width: 80%;
