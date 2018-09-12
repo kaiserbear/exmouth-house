@@ -6298,12 +6298,11 @@ body {
     color: white;
     background: black; }
   .main h2 {
-    font-size: 5rem; }
-  .main h3 {
     font-size: 4rem; }
+  .main h3 {
+    font-size: 3rem; }
   .main .div {
     margin: 2rem 0; }
 
 iframe {
-  width: 80%;
-  margin-left: 10%; }
+  width: 100%; }
