@@ -1,24 +1,16 @@
 'use strict';
 
 const browserSync = require('browser-sync').create();
-const del = require('del');
 const gulp = require('gulp');
-const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 const exec = require('child_process').exec;
 
 const config = {
   src: './src',
-  dest: './',
-  watchers: [
-    {
-      match: ['./src/**/**/*.hbs'],
-      tasks: ['html']
-    }
-  ]
+  dest: './'
 };
 
-gulp.task('serve', () => {
+gulp.task('browser-sync', () => {
   browserSync.init({
     proxy: 'http://localhost:3000',
     port: 4000,
@@ -29,7 +21,6 @@ gulp.task('serve', () => {
   exec('node app.js', function (err, stdout, stderr) {
       console.log(stdout);
       console.log(stderr);
-      callback(err);
   });
 });
 
@@ -39,20 +30,8 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./public/css'));
 });
 
-gulp.task('sass:watch', function () {
-  gulp.watch('./sass/**/*.scss', ['sass']);
+gulp.task('sass:watch', function() {
+  gulp.watch('./sass/**/*.scss', gulp.series('sass'));
 });
 
-gulp.task('watch', () => {
-  config.watchers.forEach(item => {
-    gulp.watch(item.match, item.tasks);
-  });
-});
-
-gulp.task('default', done => {
-  gulp.start('serve');
-  gulp.start('watch');
-  gulp.start('sass');
-  gulp.start('sass:watch');
-  done();
-});
+gulp.task('default', gulp.parallel('browser-sync', 'sass','sass:watch'));
