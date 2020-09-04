@@ -27,7 +27,7 @@
     "jquery": "^3.4.1",
     "method-override": "^2.3.5",
     "mongoose": "^4.13.18",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "nodemailer": "^4.7.0",
     "passport": "^0.3.0",
     "passport-linkedin-oauth2": "^1.6.1",
